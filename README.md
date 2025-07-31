@@ -70,22 +70,6 @@ cargo run --bin flux-backend --features mutation-testing
 
 Mutation reports will be generated in the `backend/mutation-report/` directory.
 
-### GitHub Actions Integration
-
-A sample workflow is provided in `.github/workflows/mutation-testing.yml`:
-```yaml
-# ...see file for full example...
-```
-This workflow will build, test, and run mutation testing on every push and pull request to `main`. Mutation reports are uploaded as artifacts.
-
-### GitLab CI Integration
-
-A sample pipeline is provided in `.gitlab-ci.yml`:
-```yaml
-# ...see file for full example...
-```
-This pipeline will build, test, and run mutation testing, saving reports as artifacts.
-
 ### Custom Configuration
 
 You can configure mutation testing via `flux.config.yaml` or `flux.config.toml` in the project root. Example:
