@@ -1,0 +1,34 @@
+name: Mutation Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  mutation-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          override: true
+      - name: Install dependencies
+        run: cargo fetch
+      - name: Run mutation tests
+        run: |
+          cargo build --release
+          cargo test
+          # Run mutation testing (custom command, update as needed)
+          cargo run --bin flux-backend --features mutation-testing
+      - name: Upload mutation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mutation-report
+          path: backend/mutation-report/*

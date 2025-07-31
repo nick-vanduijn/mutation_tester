@@ -1,0 +1,39 @@
+# Ignore build artifacts
+target/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Local config overrides
+config/local.*
+
+# Coverage reports
+coverage/
+*.profraw
+
+# Mutation testing reports
+mutation-testing-report/
